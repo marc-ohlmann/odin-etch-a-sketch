@@ -1,0 +1,48 @@
+
+html{
+    background-color: lightgreen;
+}
+
+body{
+
+}
+
+.page-content{
+    background-color: burlywood;
+    padding-bottom: 6px;
+}
+
+.title{
+    margin: 12px;
+    padding: 12px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 32px;
+}
+
+.subtitle{
+    margin: 12px;
+    padding: 12px;
+    text-align: center;
+    font-size: 24px;
+}
+
+#etch-a-sketch{
+    margin: 48px;
+    padding: 48px;
+    background-color: lightcoral;
+    display: flex;
+    flex-direction: column;
+}
+
+.etch-a-sketch-row{
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.etch-a-sketch-pixel{
+    background-color: white;
+    padding: 2px;
+}
