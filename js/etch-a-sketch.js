@@ -1,22 +1,10 @@
 
 
-
-function Etch_A_Sketch_Pixel()
-{
-    this.bIsSet = false;
-}
-
-function Etch_A_Sketch_Row()
-{
-
-}
-
-function Etch_A_Sketch(Grid)
-{
-    this.rows
-}
-
 const EtchySketchElement = document.querySelector("#etch-a-sketch");
+const ResizeGridButton = document.querySelector("#btnResize");
+
+ResizeGridButton.addEventListener('click', HandleInput_ResizeGrid);
+
 
 function UpdatePageContent(rows, columns)
 {
@@ -33,7 +21,6 @@ function UpdatePageContent(rows, columns)
             new_pixel.classList.add('etch-a-sketch-pixel');
 
             new_pixel.addEventListener('mouseover', HandlePixelMouseOver);
-            //new_pixel.addEventListener('mouseout', HandlePixelMouseOut);
 
             new_row.appendChild(new_pixel);
         }
@@ -43,16 +30,29 @@ function UpdatePageContent(rows, columns)
 }
 
 
-UpdatePageContent(100, 100);
-
-
 function HandlePixelMouseOver(event)
 {
     event.target.setAttribute('style', 'background-color: gray');
 }
 
 
-function HandlePixelMouseOut(event)
+function HandleInput_ResizeGrid()
 {
-    event.target.setAttribute('style', 'background-color: white');
+    let gridSize = 0;
+    while(gridSize <= 0 || gridSize > 100 || isNaN(gridSize))
+    {
+        input = prompt("enter a number (0-100) to resize the grid");
+        if(input === null)
+        {
+            // exit early if the user pressed 'cancel'
+            return;
+        }
+
+        gridSize = Number(input);
+    }
+    
+    UpdatePageContent(gridSize, gridSize);
 }
+
+
+UpdatePageContent(100, 100);
